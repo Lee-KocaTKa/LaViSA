@@ -21,7 +21,7 @@ from main_eval.models.base import BaseVLM, ModelResponse
 class OpenAIModel: 
     def __init__(
         self,
-        model_card: str = "gpt-5.2",
+        model_card: str = "gpt-5-mini",
         max_output_tokens: int = 128,  
     ) -> None: 
         self.model_card = model_card 

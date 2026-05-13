@@ -29,7 +29,7 @@ def main() -> None:
     
     model = OpenAIModel()
     
-    output_path = f"outputs/by_cateogory/{category}_gpt5.2_simple_selection.jsonl"
+    output_path = f"outputs/by_cateogory/{category}_gpt5mini_simple_selection.jsonl"
     
     print(f"Category: {category}")
     print(f"Groups: {len(groups)}")
