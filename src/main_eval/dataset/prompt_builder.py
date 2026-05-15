@@ -27,6 +27,24 @@ def build_simple_selection_prompt(sample: dict[str, Any]) -> str:
         "Question:",
         "Among the following options, which one correctly reflects the meaning of the caption given the image?",
     ]
+    # opitional 
+    lines = [
+        "You are a vision-language model performing structural disambiguation.",
+        "",
+        "You will be given an ambiguous caption and an image.",
+        "Your task is to select the correct interpretation of the caption based on the image.",
+        "Also, give us a brief explanation of why you chose that option.",
+        "",
+        "Important:",
+        "- All options are derived from the same ambiguous caption and differ only in structural interpretation.",
+        "- You must use the image to decide.",
+        "- Do not rely only on textual plausibility.",
+        "",
+        f'Caption: "{caption}"',
+        "",
+        "Question:",
+        "Among the following options, which one correctly reflects the meaning of the caption given the image?",
+    ]
     
     for i, option in enumerate(options, start=1):
         lines.append(f'{i}) "{option}"')
@@ -35,5 +53,6 @@ def build_simple_selection_prompt(sample: dict[str, Any]) -> str:
     lines.append("")
     lines.append("Please provide your answer in the following format:")
     lines.append("Answer: <one of the options> as a single number (1, 2, 3, etc.)") 
-    
+    lines.append("Explanation: <brief explanation of your choice>")  # optional 
+
     return "\n".join(lines) 

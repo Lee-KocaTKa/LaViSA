@@ -28,6 +28,14 @@ def build_vilstrub_samples(
             continue 
         
         options = [variant[text_field] for variant in variants]  
+        
+        # options for ablation study
+        if category == "ellip": 
+            options = [ambiguous_caption + ", " + option for option in options]
+        else: 
+            # discarding ambiguous caption from the option
+            options = [option.replace(ambiguous_caption, "").strip(",. ") for option in options]
+        
         option_sentence_ids = [variant["SentenceID"] for variant in variants] 
         #descriptions = [variant["Description"] for variant in variants] 
         

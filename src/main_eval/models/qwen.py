@@ -5,8 +5,8 @@ import os
 from pathlib import Path 
 from PIL import Image
 
-from transformers import Qwen3VLMoeForConditionalGeneration, AutoProcessor 
-#from transformers import Qwen3VLForConditionalGeneration, AutoProcessor
+#from transformers import Qwen3VLMoeForConditionalGeneration, AutoProcessor 
+from transformers import Qwen3VLForConditionalGeneration, AutoProcessor
 
 from typing import Any 
 from main_eval.dataset.prompt_builder import build_simple_selection_prompt
@@ -16,14 +16,14 @@ from main_eval.models.base import BaseVLM, ModelResponse
 class QwenModel:
     def __init__(
         self,
-        model_card: str = "Qwen/Qwen3-VL-30B-A3B-Thinking", 
+        model_card: str = "Qwen/Qwen3-VL-8B-Instruct", 
         max_output_toknes: int = 512, # initially, 64
     ) -> None: 
         self.model_card = model_card 
         self.max_output_tokens = max_output_toknes 
         #with open("../../../../data/cle.txt", "r") as f:
         #    key = f.read().strip()
-        self.model = Qwen3VLMoeForConditionalGeneration.from_pretrained(
+        self.model = Qwen3VLForConditionalGeneration.from_pretrained(
             self.model_card, 
             dtype="auto", 
             device_map="auto"

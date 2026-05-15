@@ -11,6 +11,6 @@ export PYTHONPATH=/mnt/home/sangmyeong-l/research/ARR_May_2026/src
 
 
 # Run evaluation
-python -m scripts.run_qwen --category vp
+python -m scripts.run_qwen 
 # Stop server after evaluation
 kill $SERVER_PID

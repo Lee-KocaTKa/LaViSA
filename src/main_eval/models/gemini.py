@@ -17,7 +17,8 @@ from main_eval.models.base import ModelResponse
 class GeminiModel:
     def __init__(
         self,
-        model_card: str = "gemini-3.1-flash-lite-preview",
+        #model_card: str = "gemini-3.1-flash-lite-preview",
+        model_card: str = "gemini-3.1-pro-preview",
         max_output_tokens: int = 128
     ) -> None:
         self.model_card = model_card
