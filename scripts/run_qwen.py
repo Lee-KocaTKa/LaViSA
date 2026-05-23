@@ -34,7 +34,7 @@ def main() -> None:
     
     
     
-        output_path = f"outputs/ablation_expl/{category}_qwen8B_simple_selection.jsonl"
+        output_path = f"outputs/ablation_expl/{category}_qwen32Bthinking_simple_selection.jsonl"
     
         print(f"Category: {category}")
         print(f"Groups: {len(groups)}")
