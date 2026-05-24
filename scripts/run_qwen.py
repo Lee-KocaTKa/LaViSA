@@ -11,7 +11,7 @@ from main_eval.models.qwen import QwenModel
 
 
 def main() -> None:
-    categories = ["vp", "anaph", "ellip", "conj", "adjscope", "verbscope", "pp"] 
+    categories = ["adj", "vb", "pp", "vp", "anaph", "ellip", "conj"] 
     
     #parser = argparse.ArgumentParser() 
     #parser.add_argument("--category", required=True, type=str)  
@@ -34,7 +34,7 @@ def main() -> None:
     
     
     
-        output_path = f"outputs/ablation_expl/{category}_qwen32Bthinking_simple_selection.jsonl"
+        output_path = f"outputs/ablation_expl/{category}_qwen8Bthinking_simple_selection.jsonl"
     
         print(f"Category: {category}")
         print(f"Groups: {len(groups)}")
