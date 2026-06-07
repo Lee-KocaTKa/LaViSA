@@ -21,15 +21,14 @@ class QwenModel:
     ) -> None: 
         self.model_card = model_card 
         self.max_output_tokens = max_output_toknes 
-        #with open("../../../../data/cle.txt", "r") as f:
-        #    key = f.read().strip()
+        
         self.model = Qwen3VLForConditionalGeneration.from_pretrained(
             self.model_card, 
             dtype="auto", 
             device_map="auto"
         )
         self.processor = AutoProcessor.from_pretrained(self.model_card) 
-        #print(os.environ["OPENAI_API_KEY"]) 
+        
     def parse_answer(self, text: str) -> int | None:
         text = text.strip()
 

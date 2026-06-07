@@ -29,9 +29,7 @@ def run_evalution_resumeable(
     
     print(f"Found {len(completed_ids)} completed samples in {output_path}")  
     
-    #if summary_path is not None: 
-    #    summary_path = Path(summary_path)
-    #    summary_path.parent.mkdir(parents=True, exist_ok=True) 
+   
     
     total = 0 
     correct = 0 
@@ -44,7 +42,7 @@ def run_evalution_resumeable(
     
     with open_jsonl_append(output_path) as f: 
         for sample in samples:
-            # print the current progress (n out of total)
+            
             print(f"Processing sample {total+1} / {len(samples)} (skipped {skipped})", end="\r") 
             
             
@@ -85,7 +83,7 @@ def run_evalution_resumeable(
                 "image_path": sample["image_path"],
                 "ambiguous_caption": sample["ambiguous_caption"], 
             }
-            #f.write(json.dumps(record, ensure_ascii=False) + "\n") 
+            
             
             do_fsync = (total % fsync_every == 0) 
             append_jsonl_record(f, record, do_fsync=do_fsync) 
@@ -97,7 +95,7 @@ def run_evalution_resumeable(
                     f"parse_fail={_safe_acc(parse_fail, total):.4f}"
                 )
                 
-    # Build Summary
+
     category_names = [c for c in CATEGORY_ORDER if c in per_category_total] 
     remaining = [c for c in per_category_total if c not in CATEGORY_ORDER] 
     category_names.extend(sorted(remaining))  
@@ -129,7 +127,7 @@ def run_evalution_resumeable(
             "parse_fail_rate": _safe_acc(cat_parse_fail, cat_total),
         }
 
-    # Print Summary 
+   
     print("\n=== This Run Summary ===")
     print(
         f"newly_processed={summary['newly_processed']} "

@@ -7,6 +7,7 @@ from main_eval.dataset.loader import load_groups
 from main_eval.dataset.transform import build_vilstrub_samples
 from main_eval.evaluation.runner import run_evalution_resumeable
 from main_eval.models.gemini import GeminiModel
+from pathlib import Path 
 
 
 def main() -> None:
@@ -33,12 +34,8 @@ def main() -> None:
 
     model = GeminiModel()
 
-    model_name = "gemini_3.1_flash_lite_preview"  # or extract from model.model_card if needed
-    output_path = (
-        f"outputs/by_category/"
-        f"{category}_{model_name}_simple_selection.jsonl"
-    )
-
+    
+    output_path = Path("path to your output jsonl")  # Update this to your desired output path
     print(f"Category: {category}")
     print(f"Groups: {len(groups)}")
     print(f"Samples: {len(samples)}")

@@ -1,4 +1,5 @@
 from __future__ import annotations 
+from pathlib import Path
 
 import argparse 
 
@@ -30,8 +31,8 @@ def main() -> None:
     
     model = LlavaOneVisionModel()
     
-    output_path = f"outputs/by_cateogory/{category}_llava_onevision_simple_selection.jsonl"
-    
+    output_path = Path("path to your output jsonl")  # Update this to your desired output path
+
     print(f"Category: {category}")
     print(f"Groups: {len(groups)}")
     print(f"Samples: {len(samples)}")

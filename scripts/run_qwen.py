@@ -1,4 +1,5 @@
 from __future__ import annotations 
+from pathlib import Path
 
 import argparse 
 
@@ -31,10 +32,7 @@ def main() -> None:
             text_field="Meaning",
         )
     
-    
-    
-    
-        output_path = f"outputs/ablation_expl/{category}_qwen4Bthinking_simple_selection.jsonl"
+        output_path = Path(f"outputs/ablation_expl/{category}_qwen4Bthinking_simple_selection.jsonl")
     
         print(f"Category: {category}")
         print(f"Groups: {len(groups)}")

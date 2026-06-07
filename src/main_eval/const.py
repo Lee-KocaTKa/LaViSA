@@ -4,44 +4,44 @@ from __future__ import annotations
 
 from pathlib import Path
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
-DATA_ROOT = PROJECT_ROOT.parent / "data" / "ViLStrUB"
+
+DATA_ROOT = Path("path to your data directory")
 CATEGORY_ORDER = ["vp", "pp", "anaph", "ellip", "adj", "vb", "conj"]
 CATEGORY_DATASET_CONFIG = {
     "vp": {
-        "json_path": DATA_ROOT / "jsons_UNIT2" / "vp.json",
-        "image_dir": DATA_ROOT / "images" / "vp",
+        "json_path": Path("path to your json"),
+        "image_dir": Path("path to your image directory"),
     },
     "pp": {
-        "json_path": DATA_ROOT / "jsons_UNIT2" / "pp.json",
-        "image_dir": DATA_ROOT / "images" / "pp",
+        "json_path": Path("path to your json"),
+        "image_dir": Path("path to your image directory"),
     },
     "anaph": {
-        "json_path": DATA_ROOT / "jsons_UNIT2" / "anaph.json",
-        "image_dir": DATA_ROOT / "images" / "anaph",
+        "json_path": Path("path to your json"),
+        "image_dir": Path("path to your image directory"),
     },
     "ellip": {
-        "json_path": DATA_ROOT / "jsons_UNIT2" / "ellip.json",
-        "image_dir": DATA_ROOT / "images" / "ellip",
+        "json_path": Path("path to your json"),
+        "image_dir": Path("path to your image directory"),
     },
     "adj": {
-        "json_path": DATA_ROOT / "jsons_UNIT2" / "adjscope.json",
-        "image_dir": DATA_ROOT / "images" / "adjscope",
+        "json_path": Path("path to your json"),
+        "image_dir": Path("path to your image directory"),
     },
     "vb": {
-        "json_path": DATA_ROOT / "jsons_UNIT2" / "verbscope.json",
-        "image_dir": DATA_ROOT / "images" / "verbscope",
+        "json_path": Path("path to your json"),
+        "image_dir": Path("path to your image directory"),
     },
     "conj": {
-        "json_path": DATA_ROOT / "jsons_UNIT2" / "conj.json",
-        "image_dir": DATA_ROOT / "images" / "conj",
+        "json_path": Path("path to your json"),
+        "image_dir": Path("path to your image directory"),
     },
 }
 
 
-VS_JSON_PATH = "../../../../data/ViLStrUB/jsons_UNIT2/"
-VS_IMAGE_PATH = "../../../../data/ViLStrUB/images/"
-# It would be better if I could treat them as environment variables I guess 
+VS_JSON_PATH = Path("path to your json")
+VS_IMAGE_PATH = Path("path to your image directory")
+
 
 SIMPLE_SELECTION_SYSTEM_PROMPT = """
 You are a vision-language reasoning model performing structural disambiguation using visual context.

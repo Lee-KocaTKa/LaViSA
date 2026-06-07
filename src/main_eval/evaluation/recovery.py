@@ -1,5 +1,5 @@
 """
-This is for when the job is terminated in the middle
+Recovery script for loading completed sample IDs when the job is terminated in the middle
 """
 
 from __future__ import annotations 
