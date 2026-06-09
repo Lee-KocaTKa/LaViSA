@@ -11,43 +11,47 @@ from pathlib import Path
 
 
 def main() -> None:
+    categories = ["vp", "anaph", "ellip", "conj", "adjscope", "verbscope", "pp"] 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--category", required=True, type=str)
+   
+    parser.add_argument("--model_card", required=True, type=str) 
     
     args = parser.parse_args()
 
-    category = args.category
-    if category not in CATEGORY_DATASET_CONFIG:
-        raise ValueError(
-            f"Invalid category: {category}. "
+    
+    model_card = args.model_card
+    for category in categories:
+        if category not in CATEGORY_DATASET_CONFIG:
+            raise ValueError(
+                f"Invalid category: {category}. "
+            )
+
+        config = CATEGORY_DATASET_CONFIG[category]
+
+        groups = load_groups(config["json_path"])
+        samples = build_vilstrub_samples(
+            groups=groups,
+            category=category,
+            image_dir=config["image_dir"],
+            text_field="Meaning",
         )
 
-    config = CATEGORY_DATASET_CONFIG[category]
+        model = GeminiModel(model_card=model_card)
 
-    groups = load_groups(config["json_path"])
-    samples = build_vilstrub_samples(
-        groups=groups,
-        category=category,
-        image_dir=config["image_dir"],
-        text_field="Meaning",
-    )
+        
+        output_path = Path("path to your output jsonl")  # Update this to your desired output path
+        print(f"Category: {category}")
+        print(f"Groups: {len(groups)}")
+        print(f"Samples: {len(samples)}")
+        print(f"Output path: {output_path}")
 
-    model = GeminiModel()
-
-    
-    output_path = Path("path to your output jsonl")  # Update this to your desired output path
-    print(f"Category: {category}")
-    print(f"Groups: {len(groups)}")
-    print(f"Samples: {len(samples)}")
-    print(f"Output path: {output_path}")
-
-    run_evalution_resumeable(
-        model=model,
-        samples=samples,
-        output_path=output_path,
-        log_every=10,
-        fsync_every=1,
-    )
+        run_evalution_resumeable(
+            model=model,
+            samples=samples,
+            output_path=output_path,
+            log_every=10,
+            fsync_every=1,
+        )
 
 
 if __name__ == "__main__":

@@ -14,10 +14,10 @@ from main_eval.models.qwen import QwenModel
 def main() -> None:
     categories = ["adj", "vb", "pp", "vp", "anaph", "ellip", "conj"] 
     
-    #parser = argparse.ArgumentParser() 
-    #parser.add_argument("--category", required=True, type=str)  
-    #args = parser.parse_args() 
-    model = QwenModel()
+    parser = argparse.ArgumentParser() 
+    parser.add_argument("--model_card", required=True, type=str)
+    args = parser.parse_args()
+    model = QwenModel(model_card=args.model_card )
     for category in categories:
         if category not in CATEGORY_DATASET_CONFIG: 
             raise ValueError(f"Invalid category: {category}. Must be one of {list(CATEGORY_DATASET_CONFIG.keys())}")

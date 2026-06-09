@@ -10,9 +10,13 @@ from main_eval.evaluation.runner import run_evalution_resumeable
 from main_eval.models.gemma import GemmaModel 
 
 def main() -> None: 
+    parser = argparse.ArgumentParser() 
+    parser.add_argument("--model_card", required=True, type=str)
     categories = ["vp", "anaph", "ellip", "conj", "adjscope", "verbscope", "pp"] 
     
-    model = GemmaModel()
+    args = parser.parse_args()
+    model_card = args.model_card
+    model = GemmaModel(model_path=model_card)
     for category in categories:
         if category not in CATEGORY_DATASET_CONFIG: 
             raise ValueError(f"Invalid category: {category}. Must be one of {list(CATEGORY_DATASET_CONFIG.keys())}")
