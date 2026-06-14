@@ -1,5 +1,5 @@
-# ViLaSA (Vision and Language Structural Ambiguity) Benchmark
-Code repository for the ARR May Submission of **ViLaSA**, a benchmark for evaluating current Vision-Language Models (VLMs) on processing structural ambiguity using visual information. 
+# LaViSA (Language and Vision Structural Ambiguity) Benchmark
+Code repository for the ARR May Submission of **LaViSA**, a benchmark for evaluating current Vision-Language Models (VLMs) on processing structural ambiguity using visual information. 
 
 ---
 
